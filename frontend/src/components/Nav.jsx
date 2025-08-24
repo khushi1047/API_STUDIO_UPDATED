@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo.png';
+import {NavLink} from 'react-router-dom'
 
 const Nav = () => {
   return (
@@ -12,15 +13,15 @@ const Nav = () => {
       </div>
 
       <ul className="flex flex-col sm:flex-row items-center gap-4 sm:gap-9 text-center">
-        <li className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 cursor-pointer">
+        <NavLink to ="/"><li className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 cursor-pointer">
           Overview
-        </li>
-        <li className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 cursor-pointer">
+        </li></NavLink>
+         <NavLink to ="/editor"><li className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 cursor-pointer">
           API-Tester | Code Editor
-        </li>
-        <li className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 hover:underline cursor-pointer">
+        </li></NavLink>
+         <NavLink to ="/dashboard"><li className="text-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-400 hover:to-cyan-400 hover:underline cursor-pointer">
           Dashboard
-        </li>
+        </li></NavLink>
       </ul>
 
       <button className="bg-gradient-to-r from-green-400 to-cyan-400 text-black rounded px-6 py-2 hover:scale-105 transition-transform">

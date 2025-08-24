@@ -9,8 +9,8 @@ const Footer = () => {
         </p>
 
         <div className="flex space-x-6 text-sm">
-          <a href="/privacy" className="hover:text-white">Privacy Policy</a>
-          <a href="/terms" className="hover:text-white">Terms & Conditions</a>
+          <a href="" className="hover:text-white">Privacy Policy</a>
+          <a href="" className="hover:text-white">Terms & Conditions</a>
         </div>
 
       </div>

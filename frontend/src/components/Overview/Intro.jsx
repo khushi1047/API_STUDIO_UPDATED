@@ -1,8 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import sample from "../../assets/sample.png";
+import { useNavigate } from "react-router-dom";
+
 
 const Intro = () => {
+  
+const navigate = useNavigate();
   return (
     <div className="flex flex-col lg:flex-row items-center lg:items-start pt-[150px] px-6 lg:px-20 gap-10">
       <motion.div
@@ -24,8 +28,8 @@ const Intro = () => {
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
-          className="bg-gradient-to-r from-green-400 to-cyan-400 text-black rounded px-6 py-2 w-fit transition-transform"
-        >
+          className="bg-gradient-to-r from-green-400 to-cyan-400 text-black rounded px-6 py-2 w-fit transition-transform hover:cursor-pointer"
+        onClick={()=>navigate('/editor')}>
           Start building
         </motion.button>
       </motion.div>
