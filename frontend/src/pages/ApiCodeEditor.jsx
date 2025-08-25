@@ -1,9 +1,9 @@
 import React from 'react'
-
+import ApiTester from '../components/ApiCodeEditor/ApiTester'
 const ApiCodeEditor = () => {
   return (
     <div>
-      editor
+      <ApiTester/>
     </div>
   )
 }
