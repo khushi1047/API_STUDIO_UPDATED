@@ -4,7 +4,7 @@ const ApiTester = () => {
     const [method, setMethod] = useState("GET")
 
     return (
-        <div className='w-[50%] h-[50vh] border m-5 p-6'>
+        <div>
             <p className='text-white font-bold text-3xl mb-4'>API Tester</p>
             
             <p className='text-white mb-2'>API URL:</p>
@@ -37,11 +37,12 @@ const ApiTester = () => {
                     <textarea
                         className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-400"
                         placeholder='Example: { "data": "Your data here" }'
-                        rows={3}
+                        rows={4}
                     />
                 </div>
             )}
         </div>
+        
     )
 }
 
