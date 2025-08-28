@@ -12,10 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(cors()); // allow frontend requests
 
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 // mongo atlas connection
-mongoose.connect(process.env.mongo_url, {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
