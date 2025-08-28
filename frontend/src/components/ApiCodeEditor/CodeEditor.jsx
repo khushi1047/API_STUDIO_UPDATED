@@ -1,13 +1,27 @@
 import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
+import axios from "axios";
 
-const CodeEditor = () => {
+const CodeEditor = ({ setResponse }) => {
   const [language, setLanguage] = useState("javascript");
   const [code, setCode] = useState("// Write your code here...");
-  const [theme, setTheme] = useState("vs-dark"); // monaco uses "vs-dark" & "light"
+  const [theme, setTheme] = useState("vs-dark"); 
+  const [isExpress, setIsExpress] = useState(false);
 
-  const handleTheme = () => {
-    setTheme((prev) => (prev === "vs-dark" ? "light" : "vs-dark"));
+  const handleTheme = () => setTheme(prev => prev === "vs-dark" ? "light" : "vs-dark");
+
+  const handleRun = async () => {
+    try {
+      let res;
+      if (isExpress) {
+        res = await axios.post("http://localhost:5000/api/express", { code });
+      } else {
+        res = await axios.post("http://localhost:5000/api/code", { code });
+      }
+      setResponse(JSON.stringify(res.data, null, 2));
+    } catch (err) {
+      setResponse(err.message);
+    }
   };
 
   return (
@@ -35,10 +49,26 @@ const CodeEditor = () => {
             <option value="php">PHP</option>
             <option value="go">Go</option>
           </select>
+
+          <label className="text-white flex items-center gap-1">
+            <input
+              type="checkbox"
+              checked={isExpress}
+              onChange={(e) => setIsExpress(e.target.checked)}
+            />
+            Express API
+          </label>
+
+          <button
+            className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
+            onClick={handleRun}
+          >
+            Run
+          </button>
         </div>
       </div>
 
-      <div className="flex-1 border border-gray-600 rounded">
+      <div className="flex-1 border border-gray-600 rounded mb-2">
         <Editor
           height="100%"
           language={language}
